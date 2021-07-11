@@ -6,8 +6,15 @@ import { Provider } from 'react-redux';
 import store from './store';
 import { Container } from 'reactstrap';
 import ItemModal from './componens/ItemModal';
+import { loadUser} from './actions/authActions';
+import React from 'react';
+import { Component } from 'react';
 
 function App() {
+  React.useEffect(() => {
+    console.log('In the USe effect');
+    store.dispatch(loadUser());
+  }, []);
   return (
     <Provider store = {store}>
       <div className="App">
